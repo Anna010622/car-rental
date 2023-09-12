@@ -1,0 +1,17 @@
+.list {
+	display: flex;
+	gap: 18px;
+}
+.item {
+}
+.link {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.6;
+	transition: color $transition;
+
+	&:global(.active),
+	&:hover {
+		color: $accent-cl;
+	}
+}
