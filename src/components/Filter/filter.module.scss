@@ -1,0 +1,72 @@
+.form {
+	display: flex;
+	gap: 18px;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	justify-content: center;
+	margin-bottom: 50px;
+
+	@include desktop {
+		flex-wrap: nowrap;
+	}
+}
+.carBrand__wrapper {
+	width: 224px;
+	max-height: 272px;
+}
+.carPrice__wrapper {
+	width: 224px;
+	max-height: 188px;
+}
+.label {
+	margin-bottom: 8px;
+	color: $secondary-text-cl;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.29;
+}
+
+.input__wrapper {
+	width: 320px;
+}
+
+.input {
+	position: relative;
+}
+
+.input__text {
+	position: absolute;
+	left: 24px;
+	top: 50%;
+	transform: translateY(-50%);
+
+	background: $secondary-light-cl;
+	color: $main-text-cl;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.11;
+}
+
+.input__field {
+	border: none;
+	width: 50%;
+	height: 48px;
+	background: $secondary-light-cl;
+	color: $main-text-cl;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.11;
+
+	&:focus-visible {
+		outline: none;
+	}
+}
+.input_left {
+	padding: 14px 14px 14px 71px;
+	border-radius: 14px 0px 0px 14px;
+	border-right: 1px solid rgba(138, 138, 137, 0.2);
+}
+.input_right {
+	padding: 14px 14px 14px 49px;
+	border-radius: 0px 14px 14px 0px;
+}
