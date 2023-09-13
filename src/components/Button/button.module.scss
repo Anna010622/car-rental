@@ -1,0 +1,21 @@
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 12px;
+	border: 0;
+	border-radius: 12px;
+	background-color: $accent-cl;
+
+	color: $main-light-cl;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.43;
+	cursor: pointer;
+	transition: background-color $transition;
+
+	&:hover,
+	&:focus {
+		background-color: $accent-hover;
+	}
+}

@@ -1,5 +1,11 @@
+import AdsList from '../components/AdsList/AdsList';
+
 const MainPage = () => {
-	return <section className="section"></section>;
+	return (
+		<section className="section">
+			<AdsList />
+		</section>
+	);
 };
 
 export default MainPage;
