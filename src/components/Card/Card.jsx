@@ -2,12 +2,23 @@ import { BiHeart, BiSolidHeart } from 'react-icons/bi';
 import Button from '../Button/Button';
 import styles from './card.module.scss';
 import { useState } from 'react';
+import Modal from '../Modal/Modal';
+import ModalContent from '../ModalContent/ModalContent';
 
 const Card = ({ item }) => {
 	const [addedToFavorites, setAddedToFavorites] = useState(false);
+	const [isModalOpened, setIsModalOpened] = useState(false);
 
 	const handelClickOnHeat = () => {
 		setAddedToFavorites(!addedToFavorites);
+	};
+
+	const openModal = () => {
+		setIsModalOpened(true);
+	};
+
+	const closeModal = () => {
+		setIsModalOpened(false);
 	};
 
 	return (
@@ -46,7 +57,12 @@ const Card = ({ item }) => {
 				</div>
 			</div>
 
-			<Button text="Learn more" width="100%" />
+			<Button text="Learn more" width="100%" onClick={openModal} />
+			{isModalOpened && (
+				<Modal close={closeModal}>
+					<ModalContent item={item} />
+				</Modal>
+			)}
 		</div>
 	);
 };

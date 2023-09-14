@@ -6,6 +6,10 @@ body {
 	color: $main-text-cl;
 	font-family: 'Manrope', sans-serif;
 	height: 100%;
+
+	&.noScroll {
+		overflow: hidden;
+	}
 }
 #root {
 	height: 100%;
