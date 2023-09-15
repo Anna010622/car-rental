@@ -1,3 +1,8 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
 .photo__container {
 	position: relative;
 	margin-bottom: 14px;
@@ -89,4 +94,8 @@
 		background-color: #121417;
 		opacity: 0.1;
 	}
+}
+
+.btnWrapper {
+	margin-top: auto;
 }

@@ -1,15 +1,7 @@
 .list {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
 	row-gap: 50px;
 	column-gap: 29px;
-	justify-content: center;
-}
-.item {
-	@include tablet {
-		flex-basis: calc((100% - 29px * 2) / 3);
-	}
-	@include desktop {
-		flex-basis: calc((100% - 29px * 3) / 4);
-	}
+	margin-bottom: 100px;
 }

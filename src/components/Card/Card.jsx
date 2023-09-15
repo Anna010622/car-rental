@@ -1,5 +1,5 @@
 import { BiHeart, BiSolidHeart } from 'react-icons/bi';
-import Button from '../Button/Button';
+import Button from '../Buttons/Button';
 import styles from './card.module.scss';
 import { useState } from 'react';
 import Modal from '../Modal/Modal';
@@ -22,7 +22,7 @@ const Card = ({ item }) => {
 	};
 
 	return (
-		<div>
+		<div className={styles.card}>
 			<div className={styles.photo__container}>
 				<img className={styles.photo} src={item.img} alt="img" />
 				<button className={styles.btn} onClick={handelClickOnHeat}>
@@ -57,7 +57,12 @@ const Card = ({ item }) => {
 				</div>
 			</div>
 
-			<Button text="Learn more" width="100%" onClick={openModal} />
+			<div className={styles.btnWrapper}>
+				<Button width="100%" onClick={openModal}>
+					Learn more
+				</Button>
+			</div>
+
 			{isModalOpened && (
 				<Modal close={closeModal}>
 					<ModalContent item={item} />

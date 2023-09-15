@@ -107,4 +107,10 @@
 	font-size: 14px;
 	font-weight: 600;
 	line-height: 1.43;
+
+	transition: background-color $transition;
+
+	&:hover {
+		background-color: $accent-hover;
+	}
 }

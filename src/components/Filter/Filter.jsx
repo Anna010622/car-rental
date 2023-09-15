@@ -2,7 +2,7 @@ import Select from 'react-select';
 import styles from './filter.module.scss';
 import { useState } from 'react';
 import { customSelectStyles, priceSelectStyles } from './customSelectStyles';
-import Button from '../Button/Button';
+import Button from '../Buttons/Button';
 
 const brandOptions = [
 	{ value: 'Buick', label: 'Buick', id: '11' },
@@ -30,7 +30,7 @@ const priceOptions = [
 	{ value: '$140', label: '140' },
 ];
 
-const Filter = () => {
+const Filter = ({ submit }) => {
 	const [state, setState] = useState({
 		carBrand: null,
 		carPrice: null,
@@ -94,7 +94,9 @@ const Filter = () => {
 				</label>
 			</div>
 
-			<Button text="Search" height="48px" width="136px" type="submit" />
+			<Button height="48px" width="136px" type="submit">
+				Search
+			</Button>
 		</form>
 	);
 };

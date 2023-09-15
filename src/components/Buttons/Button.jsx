@@ -1,6 +1,6 @@
 import styles from './button.module.scss';
 
-const Button = ({ text, width, height, type = 'button', onClick }) => {
+const Button = ({ children, width, height, type = 'button', onClick }) => {
 	return (
 		<button
 			className={styles.btn}
@@ -8,7 +8,7 @@ const Button = ({ text, width, height, type = 'button', onClick }) => {
 			type={type}
 			onClick={onClick}
 		>
-			{text}
+			{children}
 		</button>
 	);
 };
