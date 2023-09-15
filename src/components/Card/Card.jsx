@@ -5,12 +5,20 @@ import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import ModalContent from '../ModalContent/ModalContent';
 
-const Card = ({ item }) => {
-	const [addedToFavorites, setAddedToFavorites] = useState(false);
+const Card = ({ item, otherProps }) => {
+	const { favoriteItems, addToFavorite, removeFromFavorite } = otherProps;
+
+	const [addedToFavorites, setAddedToFavorites] = useState(() =>
+		favoriteItems.find(favoriteItem => favoriteItem.id === item.id)
+	);
 	const [isModalOpened, setIsModalOpened] = useState(false);
 
 	const handelClickOnHeat = () => {
-		setAddedToFavorites(!addedToFavorites);
+		setAddedToFavorites(prev => !prev);
+		if (!addedToFavorites) {
+			return addToFavorite(item);
+		}
+		return removeFromFavorite(item);
 	};
 
 	const openModal = () => {
