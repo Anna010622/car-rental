@@ -9,6 +9,10 @@ export const customSelectStyles = {
 		border: state.isSelected ? 'none' : 'none',
 		boxShadow: 'none',
 	}),
+	clearIndicator: baseStyles => ({
+		...baseStyles,
+		display: 'none',
+	}),
 	indicatorSeparator: baseStyles => ({
 		...baseStyles,
 		display: 'none',

@@ -32,8 +32,6 @@
 }
 
 .text__list {
-	display: flex;
-	gap: 12px;
 	&:not(:last-child) {
 		margin-bottom: 4px;
 	}
@@ -46,6 +44,9 @@
 	font-size: 12px;
 	line-height: 1.5;
 
+	&:not(:last-child) {
+		margin-right: 12px;
+	}
 	&:not(:last-child)::after {
 		content: '';
 		position: absolute;

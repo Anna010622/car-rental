@@ -9,6 +9,7 @@
 	height: 268px;
 	border-radius: 14px;
 	overflow: hidden;
+	background-color: $secondary-light-cl;
 }
 .photo {
 	width: 100%;
@@ -70,8 +71,6 @@
 }
 
 .text__list {
-	display: flex;
-	gap: 12px;
 	&:not(:last-child) {
 		margin-bottom: 4px;
 	}
@@ -83,6 +82,10 @@
 	opacity: 0.8;
 	font-size: 12px;
 	line-height: 1.5;
+
+	&:not(:last-child) {
+		margin-right: 12px;
+	}
 
 	&:not(:last-child)::after {
 		content: '';

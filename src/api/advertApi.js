@@ -6,9 +6,12 @@ export const getAdverts = async page => {
 	return data;
 };
 
-export const getAdvertsByBrand = async (page, brand) => {
-	const { data } = await axios.get(
-		`${BASE_URL}adverts?page=${page}&limit=8&make=${brand}`
-	);
+export const getAdvertsByBrand = async brand => {
+	const { data } = await axios.get(`${BASE_URL}adverts?make=${brand}`);
+	return data;
+};
+
+export const getAll = async () => {
+	const { data } = await axios.get(`${BASE_URL}adverts`);
 	return data;
 };

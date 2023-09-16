@@ -7,6 +7,8 @@ const FavoritesPage = () => {
 	const [favoriteAdverts, setFavoriteAdverts] = useState(() =>
 		loadFromStorage('favoriteAdverts')
 	);
+	const [filteredAdverts, setFilteredAdverts] = useState(favoriteAdverts);
+
 	useEffect(() => {
 		saveToStorage('favoriteAdverts', favoriteAdverts);
 	}, [favoriteAdverts]);
@@ -21,11 +23,46 @@ const FavoritesPage = () => {
 		);
 	};
 
+	const handleSubmit = filters => {
+		const { carBrand, carPrice, minMileage, maxMileage } = filters;
+
+		const filteredAdverts = favoriteAdverts
+			.filter(item => {
+				if (carBrand) {
+					return item.make.toLowerCase().includes(carBrand.toLowerCase());
+				}
+				return item;
+			})
+			.filter(item => {
+				if (carPrice) {
+					return (
+						Number(item.rentalPrice.replace(/\D/g, '')) <=
+						Number(carPrice.replace(/\D/g, ''))
+					);
+				}
+				return item;
+			})
+			.filter(item => {
+				if (minMileage) {
+					return item.mileage >= minMileage;
+				}
+				return item;
+			})
+			.filter(item => {
+				if (maxMileage) {
+					return item.mileage <= maxMileage;
+				}
+				return item;
+			});
+
+		setFilteredAdverts(filteredAdverts);
+	};
+
 	return (
 		<section className="section">
-			<Filter />
+			<Filter submit={handleSubmit} />
 			<AdsList
-				items={favoriteAdverts}
+				items={filteredAdverts}
 				favoriteItems={favoriteAdverts}
 				addToFavorite={addToFavorite}
 				removeFromFavorite={removeFromFavorite}
