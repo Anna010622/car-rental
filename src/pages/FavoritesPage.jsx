@@ -2,6 +2,7 @@ import Filter from '../components/Filter/Filter';
 import AdsList from '../components/AdsList/AdsList';
 import { loadFromStorage, saveToStorage } from '../helpers/local-storage';
 import { useEffect, useState } from 'react';
+import Empty from '../components/Empty/Empty';
 
 const FavoritesPage = () => {
 	const [favoriteAdverts, setFavoriteAdverts] = useState(() =>
@@ -60,13 +61,19 @@ const FavoritesPage = () => {
 
 	return (
 		<section className="section">
-			<Filter submit={handleSubmit} />
-			<AdsList
-				items={filteredAdverts}
-				favoriteItems={favoriteAdverts}
-				addToFavorite={addToFavorite}
-				removeFromFavorite={removeFromFavorite}
-			/>
+			{favoriteAdverts.length > 0 ? (
+				<>
+					<Filter submit={handleSubmit} />
+					<AdsList
+						items={filteredAdverts}
+						favoriteItems={favoriteAdverts}
+						addToFavorite={addToFavorite}
+						removeFromFavorite={removeFromFavorite}
+					/>
+				</>
+			) : (
+				<Empty />
+			)}
 		</section>
 	);
 };

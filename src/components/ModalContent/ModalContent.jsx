@@ -1,5 +1,6 @@
 import Button from '../Buttons/Button';
 import styles from './modalContent.module.scss';
+import defaultCar from '../../assets/images/default-car.jpeg';
 
 const ModalContent = ({ item }) => {
 	const rentalConditions = item.rentalConditions.split('\n');
@@ -11,7 +12,7 @@ const ModalContent = ({ item }) => {
 	return (
 		<>
 			<div className={styles.photo__container}>
-				<img className={styles.photo} src={item.img} alt="img" />
+				<img className={styles.photo} src={item.img || defaultCar} alt="img" />
 			</div>
 
 			<h2 className={styles.title}>

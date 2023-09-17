@@ -4,6 +4,7 @@ import Filter from '../components/Filter/Filter';
 import { getAdverts, getAdvertsByBrand, getAll } from '../api/advertApi';
 import ButtonLink from '../components/Buttons/ButtonLink';
 import { loadFromStorage, saveToStorage } from '../helpers/local-storage';
+import Spinner from '../components/Spinner/Spinner';
 
 const CatalogPage = () => {
 	const [adverts, setAdverts] = useState([]);
@@ -12,12 +13,15 @@ const CatalogPage = () => {
 		loadFromStorage('favoriteAdverts')
 	);
 	const [page, setPage] = useState(1);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
 		(async () => {
+			setIsLoading(true);
 			const data = await getAdverts(page);
 			setAdverts(prevState => [...prevState, ...data]);
 			if (data.length < 8) setIsBtnLoadMoreVisible(false);
+			setIsLoading(false);
 		})();
 	}, [page]);
 
@@ -43,20 +47,25 @@ const CatalogPage = () => {
 		const { carBrand, carPrice, minMileage, maxMileage } = filters;
 
 		if (!carBrand && !carPrice && !minMileage && !maxMileage) {
+			setIsLoading(true);
 			setPage(1);
 			const filteredAdverts = await getAdverts(page);
 			setIsBtnLoadMoreVisible(true);
+			setIsLoading(false);
 			return setAdverts(filteredAdverts);
 		}
 
 		setIsBtnLoadMoreVisible(false);
 
 		if (carBrand && !carPrice && !minMileage && !maxMileage) {
+			setIsLoading(true);
 			const filteredAdverts = await getAdvertsByBrand(carBrand);
+			setIsLoading(false);
 			return setAdverts(filteredAdverts);
 		}
 
 		if (carBrand) {
+			setIsLoading(true);
 			const adverts = await getAdvertsByBrand(carBrand);
 			const filteredAdverts = adverts
 				.filter(item => {
@@ -80,9 +89,11 @@ const CatalogPage = () => {
 					}
 					return item;
 				});
+			setIsLoading(false);
 			return setAdverts(filteredAdverts);
 		}
 
+		setIsLoading(true);
 		const allAdverts = await getAll();
 
 		const filteredAdverts = allAdverts
@@ -108,19 +119,22 @@ const CatalogPage = () => {
 				return item;
 			});
 		setAdverts(filteredAdverts);
+		setIsLoading(false);
 	};
 
 	return (
 		<section className="section">
-			<Filter submit={handleSearch} />
+			<Filter submit={handleSearch} isLoading={isLoading} />
 			<AdsList
 				items={adverts}
 				favoriteItems={favoriteAdverts}
 				addToFavorite={addToFavorite}
 				removeFromFavorite={removeFromFavorite}
 			/>
-			{isBtnLoadMoreVisible && (
-				<ButtonLink onClick={handleLoadMore}>Load more</ButtonLink>
+			{isBtnLoadMoreVisible && !isLoading && (
+				<ButtonLink onClick={handleLoadMore}>
+					{isLoading ? <Spinner width="60" /> : 'Load more'}
+				</ButtonLink>
 			)}
 		</section>
 	);

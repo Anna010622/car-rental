@@ -3,10 +3,11 @@ import styles from './filter.module.scss';
 import { useState } from 'react';
 import { customSelectStyles, priceSelectStyles } from './customSelectStyles';
 import Button from '../Buttons/Button';
+import Spinner from '../Spinner/Spinner';
 import makes from './makes.json';
 import prices from './prices';
 
-const Filter = ({ submit }) => {
+const Filter = ({ submit, isLoading }) => {
 	const [state, setState] = useState({
 		carBrand: '',
 		carPrice: '',
@@ -89,7 +90,7 @@ const Filter = ({ submit }) => {
 			</div>
 
 			<Button height="48px" width="136px" type="submit">
-				Search
+				{isLoading ? <Spinner width="50" /> : 'Search'}
 			</Button>
 		</form>
 	);

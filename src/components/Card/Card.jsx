@@ -4,6 +4,7 @@ import styles from './card.module.scss';
 import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import ModalContent from '../ModalContent/ModalContent';
+import defaultCar from '../../assets/images/default-car.jpeg';
 
 const Card = ({ item, otherProps }) => {
 	const { favoriteItems, addToFavorite, removeFromFavorite } = otherProps;
@@ -32,7 +33,7 @@ const Card = ({ item, otherProps }) => {
 	return (
 		<div className={styles.card}>
 			<div className={styles.photo__container}>
-				<img className={styles.photo} src={item.img} alt="img" />
+				<img className={styles.photo} src={item.img || defaultCar} alt="img" />
 				<button className={styles.btn} onClick={handelClickOnHeat}>
 					{!addedToFavorites ? (
 						<BiHeart className={styles.btn__icon} />
