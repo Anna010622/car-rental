@@ -1,10 +1,30 @@
+.nav {
+	@media screen and (max-width: 1199px) {
+		&:global(.desktop) {
+			display: none;
+		}
+	}
+}
 .list {
 	display: flex;
 	gap: 18px;
+
+	@media screen and (max-width: 1199px) {
+		margin-bottom: 18px;
+
+		display: flex;
+		flex-direction: column;
+
+		align-items: center;
+		width: 100%;
+	}
 }
-.item {
-}
+
 .link {
+	@media screen and (max-width: 1199px) {
+		font-size: 24px;
+	}
+
 	font-size: 20px;
 	font-weight: 600;
 	line-height: 1.5;

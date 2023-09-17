@@ -1,4 +1,6 @@
 .header {
+	position: relative;
+	z-index: 1000;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid $secondary-text-cl;
@@ -31,14 +33,42 @@
 		color: $accent-cl;
 	}
 }
+
 .contact {
+	display: none;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 1.5;
 
 	transition: color $transition;
 
+	@include desktop {
+		display: flex;
+		gap: 16px;
+		align-items: center;
+	}
+
 	&:hover {
 		color: $accent-cl;
+	}
+}
+
+.contactIcon {
+	height: 27px;
+	color: $main-text-cl;
+	transition: color $transition;
+
+	.contact:hover & {
+		color: $accent-cl;
+	}
+}
+
+.menuIcon {
+	height: 40px;
+	width: 40px;
+	color: $main-text-cl;
+
+	@include desktop {
+		display: none;
 	}
 }
