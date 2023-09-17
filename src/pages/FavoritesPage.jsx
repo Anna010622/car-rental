@@ -72,7 +72,7 @@ const FavoritesPage = () => {
 					/>
 				</>
 			) : (
-				<Empty />
+				<Empty text="Your favorites list is empty" />
 			)}
 		</section>
 	);

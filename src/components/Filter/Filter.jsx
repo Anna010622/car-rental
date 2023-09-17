@@ -90,7 +90,7 @@ const Filter = ({ submit, isLoading }) => {
 			</div>
 
 			<Button height="48px" width="136px" type="submit">
-				{isLoading ? <Spinner width="50" /> : 'Search'}
+				{isLoading ? <Spinner width="50" color="#FFFFFF" /> : 'Search'}
 			</Button>
 		</form>
 	);

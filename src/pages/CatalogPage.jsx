@@ -5,6 +5,7 @@ import { getAdverts, getAdvertsByBrand, getAll } from '../api/advertApi';
 import ButtonLink from '../components/Buttons/ButtonLink';
 import { loadFromStorage, saveToStorage } from '../helpers/local-storage';
 import Spinner from '../components/Spinner/Spinner';
+import Empty from '../components/Empty/Empty';
 
 const CatalogPage = () => {
 	const [adverts, setAdverts] = useState([]);
@@ -131,10 +132,14 @@ const CatalogPage = () => {
 				addToFavorite={addToFavorite}
 				removeFromFavorite={removeFromFavorite}
 			/>
-			{isBtnLoadMoreVisible && !isLoading && (
+			{isBtnLoadMoreVisible && adverts.length !== 0 && !isLoading && (
 				<ButtonLink onClick={handleLoadMore}>
 					{isLoading ? <Spinner width="60" /> : 'Load more'}
 				</ButtonLink>
+			)}
+
+			{adverts.length === 0 && !isLoading && (
+				<Empty text="There are no cars for this request" />
 			)}
 		</section>
 	);
