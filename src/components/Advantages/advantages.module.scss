@@ -1,0 +1,57 @@
+.section {
+	padding: 50px 30px;
+	background-color: $secondary-light-cl;
+	border-radius: 16px;
+}
+
+.title {
+	margin-bottom: 25px;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.5;
+	text-align: center;
+}
+
+.wrapper {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.img {
+	display: none;
+
+	@include tablet {
+		display: block;
+		width: 300px;
+		border-radius: 16px;
+	}
+
+	@include desktop {
+		width: 370px;
+	}
+}
+
+.list {
+}
+
+.item {
+	display: flex;
+	gap: 16px;
+
+	@include desktop {
+		align-items: center;
+	}
+}
+
+.icon {
+	color: $accent-cl;
+	min-width: 25px;
+	height: 25px;
+}
+
+.text {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.43;
+}

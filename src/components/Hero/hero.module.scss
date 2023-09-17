@@ -1,0 +1,26 @@
+.hero__wrapper {
+	width: 100%;
+	height: 300px;
+	background-color: $secondary-light-cl;
+	background-image: url('../../assets/images/hero.jpg');
+	background-position: left;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	@include tablet {
+		height: 500px;
+	}
+}
+.hero__img {
+	width: 100%;
+}
+.hero__title {
+	margin-bottom: 20px;
+	font-size: 55px;
+	font-weight: 500;
+}
+.hero__subTitle {
+	font-size: 30px;
+}

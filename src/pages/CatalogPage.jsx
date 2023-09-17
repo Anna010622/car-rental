@@ -43,7 +43,8 @@ const CatalogPage = () => {
 		const { carBrand, carPrice, minMileage, maxMileage } = filters;
 
 		if (!carBrand && !carPrice && !minMileage && !maxMileage) {
-			const filteredAdverts = await getAdverts(1);
+			setPage(1);
+			const filteredAdverts = await getAdverts(page);
 			setIsBtnLoadMoreVisible(true);
 			return setAdverts(filteredAdverts);
 		}

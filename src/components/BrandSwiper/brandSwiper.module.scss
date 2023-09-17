@@ -1,0 +1,43 @@
+.section {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.title {
+	margin-bottom: 25px;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.5;
+	text-align: center;
+}
+
+.brandIcon {
+	width: 40px;
+	height: 40px;
+
+	@include tablet {
+		width: 70px;
+		height: 70px;
+	}
+
+	@include desktop {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+:global(.swiper) {
+	padding-bottom: 60px;
+}
+:global(.swiper-slide) {
+	background-color: $secondary-light-cl;
+	border-radius: 14px;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+:global(.swiper-scrollbar.swiper-scrollbar-horizontal) {
+	top: 130px;
+	height: 10px;
+	cursor: pointer;
+	background-color: $secondary-light-cl;
+}
