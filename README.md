@@ -15,7 +15,7 @@ CarRental - website for car rental
 - Add cars to your favorites;
 - View detailed information about each car.
 
-### You can test the application by following the link [https://anna010622.github.io/car-rental/]([https://](https://anna010622.github.io/car-rental/)).
+### You can test the application by following the link [https://anna010622.github.io/car-rental/]
 
 ## The project was created using:
 
